@@ -22,8 +22,8 @@ Route::get('/user', function (Request $request) {
 
 
 //Auth
-Route::post('/auth/login', [AuthController::class, 'login']);
-Route::post('/auth/register', [AuthController::class, 'register']);
+Route::post('/v1/auth/login', [AuthController::class, 'login']);
+Route::post('/v1/auth/register', [AuthController::class, 'register']);
 Route::middleware('auth:api')->post('/refresh-password', [AuthController::class, 'refreshPassword']);
 
 //Admin
@@ -39,7 +39,7 @@ Route::prefix('v1')->group(function () {
 });
 
 //pelanggan
-Route::get('/v1/v1/pelanggan', [PelangganController::class, 'index']);
+Route::get('/v1/pelanggan', [PelangganController::class, 'index']);
 Route::get('/v1/pelanggan/{pelanggan_id}', [PelangganController::class, 'show']);
 Route::post('/v1/pelanggan', [PelangganController::class, 'store']);
 Route::put('/v1/pelanggan/{pelanggan_id}', [PelangganController::class, 'update']);
